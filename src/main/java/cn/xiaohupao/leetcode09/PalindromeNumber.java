@@ -11,6 +11,9 @@ public class PalindromeNumber {
      * For example, 121 is palindrome while 123 is not.
      * @param x int
      * @return boolean - true if x is palindrome integer
+     *
+     * time: O(log(n))
+     * space: O(1)
      */
     public static boolean isPalindrome(int x){
         if (x < 0 || (x != 0 && x % 10 == 0)){
