@@ -15,8 +15,8 @@ public class ZigZagConversion {
      * @param numRows int - number of rows
      * @return String - after convert
      *
-     * time:
-     * space:
+     * time: O(n)
+     * space: O(m)
      */
     public static String convert(String s, int numRows){
         if (numRows <= 1){
