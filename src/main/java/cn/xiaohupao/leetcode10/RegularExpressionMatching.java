@@ -15,8 +15,8 @@ public class RegularExpressionMatching {
      * @param p String
      * @return boolean - true is match
      *
-     * time: O()
-     * space：O()
+     * time: O(nm)
+     * space：O(nm)
      */
     public static boolean isMatch(String s, String p){
         if (s == null || p == null){
