@@ -12,6 +12,9 @@ public class ValidParentheses {
      * Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
      * @param s String
      * @return true is valid
+     *
+     * time: O(n)
+     * space: O(n)
      */
     public static boolean isValid(String s){
         if (s == null || s.length() == 0){

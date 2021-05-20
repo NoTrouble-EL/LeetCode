@@ -17,6 +17,15 @@ public class RemoveNthNodeFromEndOfList {
         }
     }
 
+    /**
+     * Given the head of a linked list, remove the nth node from the end of the list and return its head.
+     * @param head head of a linked list
+     * @param n int - end of the list
+     * @return ListNode - end of the list listNode
+     *
+     * time: O(n)
+     * space: O(1)
+     */
     public static ListNode removeNthNodeFromOfList(ListNode head, int n){
         ListNode dummy = new ListNode(-1, head);
         ListNode slow = dummy, fast = dummy;
