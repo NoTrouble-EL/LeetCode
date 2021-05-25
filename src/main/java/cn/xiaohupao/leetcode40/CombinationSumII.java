@@ -1,32 +1,33 @@
-package cn.xiaohupao.leetcode39;
+package cn.xiaohupao.leetcode40;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * @Author: xiaohupao
- * @Date: 2021/5/25 14:25
+ * @Date: 2021/5/25 15:15
  */
-public class CombinationSum {
+public class CombinationSumII {
 
     /**
-     * Given an array of distinct integers candidates and a target integer target,
-     * return a list of all unique combinations of candidates where the chosen numbers sum to target.
-     * You may return the combinations in any order.
-     * The same number may be chosen from candidates an unlimited number of times.
-     * Two combinations are unique if the frequency of at least one of the chosen numbers is different.
+     * Given a collection of candidate numbers (candidates) and a target number (target),
+     * find all unique combinations in candidates where the candidate numbers sum to target.
+     * Each number in candidates may only be used once in the combination.
      * @param candidates an array of distinct integers candidates
      * @param target integer target
-     * @return combinations in any order
+     * @return Each number in candidates may only be used once in the combination
      *
      * time: O(n*2^n)
-     * space: O(target)
+     * space: O(n)
      */
-    public static List<List<Integer>> combinationSum(int[] candidates, int target){
+    public static List<List<Integer>> combinationSum2(int[] candidates, int target){
         List<List<Integer>> res = new ArrayList<>();
         if (candidates == null || candidates.length == 0){
             return res;
         }
+
+        Arrays.sort(candidates);
         helper(res, new ArrayList<>(), candidates, target, 0);
 
         return res;
@@ -41,14 +42,18 @@ public class CombinationSum {
         }
 
         for (int i = start; i < candidates.length; i++){
+            if (i != start && candidates[i] == candidates[i-1]){
+                continue;
+            }
             list.add(candidates[i]);
-            helper(res, list, candidates, target-candidates[i], i);
+            helper(res, list, candidates, target-candidates[i], i+1);
             list.remove(list.size()-1);
         }
     }
+
     public static void main(String[] args) {
-        int[] candidates = {2,3,5};
+        int[] candidates = {10,1,2,7,6,1,5};
         int target = 8;
-        System.out.println(combinationSum(candidates, target));
+        System.out.println(combinationSum2(candidates, target));
     }
 }
