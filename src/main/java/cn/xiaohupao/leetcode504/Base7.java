@@ -11,7 +11,7 @@ public class Base7 {
      * @param num integer num
      * @return string of 7 representation
      *
-     * time:O()
+     * time:O( )
      * space:O()
      */
     public static String convertToBase7(int num){
