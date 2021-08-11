@@ -23,9 +23,12 @@ public class GrayCode {
      * space: O(1)
      */
     public static List<Integer> grayCode(int n){
+        //Create a List to save the results
         List<Integer> res = new ArrayList<>();
+        //Calculate the number of Gray codes generated
         int length = 1 << n;
         for (int i = 0; i < length; i++){
+            //G(n) = n ^ (n/2)
             res.add(i ^ (i >> 1));
         }
 
