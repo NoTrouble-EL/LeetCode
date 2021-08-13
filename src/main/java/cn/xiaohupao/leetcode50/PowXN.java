@@ -16,16 +16,24 @@ public class PowXN {
      * space: O(log(n))
      */
     public static double myPow(double x, int n){
+        // corner case
+        if (n == 0){
+            return -1;
+        }
+
         long N = n;
-        return N >= 0 ? pow(x, N) : (1.0 / pow(x, -N));
+
+        return N > 0 ? pow(x, N) : (1.0 / pow(x, -N));
     }
 
     public static double pow(double x, long n){
+        // Recursive exit
         if (n == 0){
             return 1;
         }
 
         double y = pow(x, (n >> 1));
+
         return n % 2 == 0 ? y * y : y * y * x;
     }
 
