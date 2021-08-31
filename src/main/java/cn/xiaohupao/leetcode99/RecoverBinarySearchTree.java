@@ -34,15 +34,19 @@ public class RecoverBinarySearchTree {
      * space: O(H) H is the height of a binary search tree
      */
     public static void recoverTree(TreeNode root){
+        //用于中序遍历
         Deque<TreeNode> stack = new ArrayDeque<>();
         TreeNode pre = null, x = null, y = null;
+        //中序遍历
         while(root != null || !stack.isEmpty()){
             while (root != null){
                 stack.push(root);
                 root = root.left;
             }
             root = stack.pop();
+            //pre不为null，且出现逆序
             if (pre != null && root.val <= pre.val){
+                //记录逆序的节点
                 y = root;
                 if (x == null){
                     x = pre;

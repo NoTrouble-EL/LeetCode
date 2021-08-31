@@ -45,15 +45,21 @@ public class UniqueBinarySearchTreesII {
     }
 
     private static List<TreeNode> helper(int start, int end){
+        //创建一个List用于保存结果
         List<TreeNode> res = new ArrayList<>();
+        //递归的出口
         if (start > end){
             res.add(null);
             return res;
         }
 
+        //遍历每个可能为根节点的值
         for (int i = start; i <= end; i++){
+            //递归左子树的可能集合
             List<TreeNode> lchild = helper(start, i-1);
+            //递归右子树的可能集合
             List<TreeNode> rchild = helper(i+1, end);
+            //构建左右子树并加入list中
             for (TreeNode left : lchild){
                 for (TreeNode right : rchild){
                     TreeNode node = new TreeNode(i);

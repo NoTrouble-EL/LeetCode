@@ -38,8 +38,13 @@ public class BinaryTreeInorderTraversal {
      * space: O(n)
      */
     public static List<Integer> inorderTraversal1(TreeNode root){
+        //创建一个List用于保存结果
         List<Integer> res = new ArrayList<>();
+
+        //创建一个栈用于中序遍历
         Deque<TreeNode> stack = new ArrayDeque<>();
+
+        //中序遍历的非递归实现
         while (root != null || !stack.isEmpty()){
             if (root != null){
                 stack.push(root);
@@ -61,12 +66,20 @@ public class BinaryTreeInorderTraversal {
         return res;
     }
 
+    /**
+     * 中序遍历的递归实现
+     * @param res
+     * @param root
+     */
     private static void inorder(List<Integer> res, TreeNode root){
         if (root == null){
             return;
         }
+        //左
         inorder(res, root.left);
+        //根
         res.add(root.val);
+        //右
         inorder(res, root.right);
     }
 

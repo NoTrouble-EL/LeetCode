@@ -51,12 +51,27 @@ public class ValidateBinarySearchTree {
 
         return true;
     }
+
+    public static boolean isValidBST2(TreeNode root){
+        return helper(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    private static boolean helper(TreeNode root, long min, long max){
+        //corner case
+        if (root == null){
+            return true;
+        }
+
+        //根节点在最小值和最大值之中，递归左子树在最小值和根节点之间，递归右子树在根节点和最大值之间
+        return root.val > min && root.val < max && helper(root.left, min, root.val) && helper(root.right, root.val, max);
+    }
     public static void main(String[] args) {
         TreeNode root = new TreeNode(2);
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(3);
         root.left = node1;
         root.right = node2;
+        System.out.println(isValidBST2(root));
         System.out.println(isValidBST(root));
     }
 }

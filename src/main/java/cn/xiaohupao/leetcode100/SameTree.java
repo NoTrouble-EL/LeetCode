@@ -47,6 +47,20 @@ public class SameTree {
             }
         }
 
+        public static boolean isSameTree2(TreeNode p, TreeNode q){
+            //根节点都为null则返回true
+            if (p == null && q == null){
+                return true;
+            }
+            //其中一个根节点为null则返回false
+            if (p == null || q == null){
+                return false;
+            }
+
+            //根节点的值相同，且p的左子树和q的左子树相同， 且p的右子树和q的右子树相同，这两颗树才相同
+            return p.val == q.val && isSameTree2(p.left, q.left) && isSameTree2(p.right, q.right);
+        }
+
         public static void main(String[] args) {
             TreeNode root1 = new TreeNode(2);
             TreeNode node1 = new TreeNode(1);
@@ -61,6 +75,7 @@ public class SameTree {
             root2.right = node4;
 
             System.out.println(isSameTree(root1, root2));
+            System.out.println(isSameTree2(root1, root2));
         }
 
 }
