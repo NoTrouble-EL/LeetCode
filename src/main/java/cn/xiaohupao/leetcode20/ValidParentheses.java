@@ -24,6 +24,7 @@ public class ValidParentheses {
         Stack<Character> stack = new Stack<>();
 
         for (Character ch : s.toCharArray()){
+            //遍历字符数组，若为左边则，压入右边
             if (ch == '('){
                 stack.push(')');
             }else if (ch == '['){
@@ -31,6 +32,7 @@ public class ValidParentheses {
             }else if (ch == '{'){
                 stack.push('}');
             }else{
+                //若为左边，则判断栈是否为空 或 栈顶是否为左边
                 if (stack.isEmpty() || !stack.pop().equals(ch)){
                     return false;
                 }

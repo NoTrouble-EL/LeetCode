@@ -18,10 +18,13 @@ public class AddTwoNumbers {
      * space: O(n)
      */
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2){
+        //构建一个哨兵节点
         ListNode dummy = new ListNode(-1);
         ListNode temp = dummy;
 
+        //sum用来保存进位的数
         int sum = 0;
+        //遍历两个链表
         while (l1 != null || l2 != null || sum != 0){
             if (l1 != null){
                 sum += l1.val;

@@ -55,6 +55,7 @@ public class LongestPalindromicSubstring {
             return s;
         }
         int N = s.length();
+        //遍历字符串
         for (int i = 0; i < N; i++){
             helper(s, i, i);
             helper(s, i, i+1);
@@ -62,10 +63,12 @@ public class LongestPalindromicSubstring {
         return res;
     }
     private static void helper(String s, int left, int right){
+        //中心扩散
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)){
             left--;
             right++;
         }
+        //获取字串
         String cur = s.substring(left+1, right);
         if (cur.length() > res.length()){
             res = cur;

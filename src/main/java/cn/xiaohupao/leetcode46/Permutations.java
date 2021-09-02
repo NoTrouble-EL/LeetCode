@@ -29,16 +29,21 @@ public class Permutations {
     }
 
     private static void helper(List<List<Integer>> res, List<Integer> list, int[] nums){
+        //递归出口
         if (list.size() == nums.length){
             res.add(new ArrayList<>(list));
         }
 
+        //横向遍历
         for (int num : nums) {
+            //排除已经遍历的数字
             if (list.contains(num)) {
                 continue;
             }
             list.add(num);
+            //纵向遍历
             helper(res, list, nums);
+            //回溯
             list.remove(list.size() - 1);
         }
     }

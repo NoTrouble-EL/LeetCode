@@ -25,6 +25,7 @@ public class TwoSum{
      * space：O(n)
      */
     public static int[] twoSum(int[] nums, int target){
+        //corner case
         if (nums == null || nums.length < 2){
             return new int[]{-1, -1};
         }
