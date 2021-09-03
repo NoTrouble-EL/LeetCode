@@ -38,7 +38,6 @@ public class LongestPalindromicSubstring {
         return res;
     }
 
-    private static String res = "";
 
     /**
      * Given a string s, return the longest palindromic substring in s.
@@ -50,6 +49,7 @@ public class LongestPalindromicSubstring {
      * time: O(n^2)
      * space: O(1)
      */
+    private static String res = "";
     public static String longestPalindrome2(String s){
         if (s == null || s.length() == 0){
             return s;
