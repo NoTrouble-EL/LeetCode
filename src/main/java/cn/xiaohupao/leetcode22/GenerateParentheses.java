@@ -20,7 +20,10 @@ public class GenerateParentheses {
      * 卡特兰数
      */
     public static List<String> generateParenthesis(int n){
+
+        // use backtracking
         List<String> res = new ArrayList<>();
+        //corner case
         if (n == 0){
             return res;
         }
@@ -29,11 +32,14 @@ public class GenerateParentheses {
         return res;
     }
 
+    //backtracking
     private static void helper(List<String> res, StringBuilder sb, int left, int right){
+        //若剩余左边的括号书大于剩余右边的括号数则剪枝
         if (left > right){
             return;
         }
 
+        //若左右括号数为0则添加到res中
         if (left == 0 && right == 0){
             res.add(sb.toString());
         }

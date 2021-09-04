@@ -28,8 +28,9 @@ public class Permutations {
         return res;
     }
 
+    //backtracking
     private static void helper(List<List<Integer>> res, List<Integer> list, int[] nums){
-        //递归出口
+        //递归出口，当集合的大小等于数组长度
         if (list.size() == nums.length){
             res.add(new ArrayList<>(list));
         }

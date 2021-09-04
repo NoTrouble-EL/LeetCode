@@ -17,6 +17,7 @@ public class JumpGame {
      * space: O(1)
      */
     public static boolean canJump(int[] nums){
+        //curMax用于保存上一个步骤可到达的最远索引，nextMax用于保存当前位置可以到达的最远位置
         int curMax = 0, nextMax = 0;
         for (int i = 0; i < nums.length; i++){
             nextMax = Math.max(nextMax, nums[i]+i);
@@ -24,6 +25,7 @@ public class JumpGame {
                 curMax = nextMax;
             }
 
+            //若curMax >= 数组的最后一个索引则返回true
             if (curMax >= nums.length-1){
                 return true;
             }
