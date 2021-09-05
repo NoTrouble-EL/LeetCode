@@ -17,6 +17,7 @@ public class ContainerWithMostWater {
      * space: O(1)
      */
     public static int maxArea(int[] height){
+        // two point
         int res = 0, i = 0, j = height.length - 1;
 
         while (i < j){
