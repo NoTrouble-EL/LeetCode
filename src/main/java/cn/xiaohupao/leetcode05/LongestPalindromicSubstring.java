@@ -64,6 +64,7 @@ public class LongestPalindromicSubstring {
     }
     private static void helper(String s, int left, int right){
         //中心扩散
+        //corner case
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)){
             left--;
             right++;

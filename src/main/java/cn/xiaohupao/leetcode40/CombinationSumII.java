@@ -23,30 +23,38 @@ public class CombinationSumII {
      */
     public static List<List<Integer>> combinationSum2(int[] candidates, int target){
         List<List<Integer>> res = new ArrayList<>();
+        //corner case
         if (candidates == null || candidates.length == 0){
             return res;
         }
-
+        //sort
         Arrays.sort(candidates);
         helper(res, new ArrayList<>(), candidates, target, 0);
 
         return res;
     }
 
+    //backtracking
     private static void helper(List<List<Integer>> res, List<Integer> list, int[] candidates, int target, int start){
+        //corner case
         if (target < 0){
             return;
         }
+        //目标值为0则直接加入结果
         if (target == 0){
             res.add(new ArrayList<>(list));
         }
 
+        //横向遍历
         for (int i = start; i < candidates.length; i++){
+            //去重
             if (i != start && candidates[i] == candidates[i-1]){
                 continue;
             }
             list.add(candidates[i]);
+            //递归
             helper(res, list, candidates, target-candidates[i], i+1);
+            //回溯
             list.remove(list.size()-1);
         }
     }
