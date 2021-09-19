@@ -29,14 +29,19 @@ public class RemoveDuplicatesFromSortedListII {
      * space: O(1)
      */
     public static ListNode deleteDuplicates(ListNode head){
+        //corner case
         if (head == null || head.next == null){
             return head;
         }
 
+        //构建一个dummy节点
         ListNode dummy = new ListNode(-1, head);
         dummy.next = head;
+
         ListNode pre = dummy, cur = head;
+        //cur进行遍历链表
         while (cur != null && cur.next != null){
+            //有重复则去重
             while (cur.next != null && cur.val == cur.next.val){
                 cur = cur.next;
             }

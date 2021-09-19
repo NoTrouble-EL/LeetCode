@@ -28,9 +28,9 @@ public class RemoveNthNodeFromEndOfList {
      */
     public static ListNode removeNthNodeFromOfList(ListNode head, int n){
         ListNode dummy = new ListNode(-1, head);
-        ListNode slow = dummy, fast = dummy;
+        ListNode slow = dummy, fast = head;
 
-        for (int i = 0; i <= n; i++){
+        for (int i = 0; i < n; i++){
             fast = fast.next;
         }
 

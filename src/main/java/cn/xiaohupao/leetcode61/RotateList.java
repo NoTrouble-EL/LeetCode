@@ -32,22 +32,30 @@ public class RotateList {
         if (head == null || head.next== null){
             return head;
         }
+        //计算出节点的个数
         int l = 1;
+        //将temp指针指向最后一个节点，而不是null
         ListNode temp = head;
         while (temp.next != null){
             temp = temp.next;
             l++;
         }
+
         if (k % l == 0){
             return head;
         }
+
         k = l - (k % l);
+
+        //成环
         temp.next = head;
         while (k-- > 0){
             temp = temp.next;
         }
 
+        //找到结果的头结点
         ListNode res = temp.next;
+        //去环
         temp.next = null;
 
         return res;

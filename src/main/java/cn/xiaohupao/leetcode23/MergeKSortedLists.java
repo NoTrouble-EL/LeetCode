@@ -29,6 +29,7 @@ public class MergeKSortedLists {
      * space: O(n)
      */
     public static ListNode mergeKLists(ListNode[] lists){
+        //思路为使用归并排序
         if (lists == null || lists.length == 0){
             return null;
         }
@@ -36,14 +37,19 @@ public class MergeKSortedLists {
     }
 
     private static ListNode sort(ListNode[] lists, int lo ,int hi){
+        //corner case
         if (lo >= hi){
             return lists[lo];
         }
 
+        //找中间值
         int mid = ((hi - lo) >> 1) + lo;
+        //递归排序左边
         ListNode l1 = sort(lists, lo, mid);
+        //递归排序右边
         ListNode l2 = sort(lists, mid+1, hi);
 
+        //merge
         return merge(l1, l2);
     }
 

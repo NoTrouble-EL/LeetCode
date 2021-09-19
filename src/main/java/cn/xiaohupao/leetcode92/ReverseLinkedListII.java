@@ -31,13 +31,18 @@ public class ReverseLinkedListII {
      * space: O(1)
      */
     public static ListNode reverseBetween(ListNode head, int left, int right){
+        //构建一个dummy节点
         ListNode dummy = new ListNode(-1, head);
         ListNode pre = dummy;
+        //找到pre为left的前一个
         for (int i = 0; i < left - 1; i++){
             pre = pre.next;
         }
 
+        //cur为left节点
         ListNode cur = pre.next;
+
+        //穿线法
         for (int i = left; i < right; i++){
             ListNode temp = cur.next;
             cur.next = temp.next;

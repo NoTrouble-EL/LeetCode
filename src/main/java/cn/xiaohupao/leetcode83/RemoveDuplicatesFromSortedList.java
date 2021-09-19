@@ -30,6 +30,7 @@ public class RemoveDuplicatesFromSortedList {
      * space: O(1)
      */
     public static ListNode deleteDuplicates(ListNode head){
+        //corner case
         if (head == null || head.next == null){
             return head;
         }

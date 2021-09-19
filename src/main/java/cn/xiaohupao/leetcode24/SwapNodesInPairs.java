@@ -27,12 +27,16 @@ public class SwapNodesInPairs {
      * space: O(n)
      */
     public static ListNode swapPairs(ListNode head){
+        //corner case
         if (head == null || head.next == null){
             return head;
         }
 
+        //保存新的头节点
         ListNode newNode = head.next;
+        //递归调用，并且接在原头节点的后面
         head.next = swapPairs(newNode.next);
+        //将新的头结点后面接上之前的头结点
         newNode.next = head;
 
         return newNode;
