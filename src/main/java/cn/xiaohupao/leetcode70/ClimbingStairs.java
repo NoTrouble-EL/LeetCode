@@ -26,7 +26,22 @@ public class ClimbingStairs {
         return r;
     }
 
+    public static int climbStairs1(int n){
+        //use dp
+        int[] dp = new int[n+1];
+        //初始化
+        dp[1] = 1; dp[0] = 1;
+        for (int i = 2; i <= n; i++){
+            //dp[i]表示，在i阶上共有dp[i]种方法
+            //状态转移方程：dp[i]的方法数 = dp[i-1]的方法数+dp[i-2]的方法数
+            dp[i] = dp[i-1] + dp[i-2];
+        }
+
+        return dp[n];
+    }
+
     public static void main(String[] args) {
         System.out.println(climbStairs(3));
+        System.out.println(climbStairs1(3));
     }
 }
