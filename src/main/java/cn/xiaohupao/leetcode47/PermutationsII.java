@@ -24,6 +24,7 @@ public class PermutationsII {
         if (nums == null || nums.length == 0){
             return res;
         }
+        //Sort
         Arrays.sort(nums);
         helper(res, new ArrayList<>(), nums, new boolean[nums.length]);
 
@@ -36,12 +37,15 @@ public class PermutationsII {
         }
 
         for (int i = 0; i < nums.length; i++){
+            //去重
             if (used[i] || i > 0 && nums[i] == nums[i-1] && !used[i-1]){
                 continue;
             }
             used[i] = true;
             list.add(nums[i]);
+            //递归
             helper(res, list, nums, used);
+            //回溯
             used[i] = false;
             list.remove(list.size()-1);
         }

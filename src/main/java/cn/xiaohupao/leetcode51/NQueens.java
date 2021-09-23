@@ -22,33 +22,45 @@ public class NQueens {
      * space: O(N)
      */
     public static List<List<String>> solveNQueens(int n){
+        //use backtracking
+
         List<List<String>> res = new ArrayList<>();
+
+        //init
         char[][] chess = new char[n][n];
         for (char[] ch : chess){
             Arrays.fill(ch, '.');
         }
+
+        //corner case
         if (n <= 0){
             return res;
         }
+
         helper(res, chess, 0);
 
         return res;
     }
 
+    //backtracking
     private static void helper(List<List<String>> res, char[][] chess, int pos){
         if (pos == chess.length){
             res.add(array2List(chess));
+            return;
         }
 
         for (int i = 0; i < chess.length; i++){
             if (isValid(pos, i, chess)){
                 chess[pos][i] = 'Q';
+                //递归
                 helper(res, chess, pos+1);
+                //回溯
                 chess[pos][i] = '.';
             }
         }
     }
 
+    //验证当前位置是否可以放入皇后
     private static boolean isValid(int row, int col, char[][] chess){
         for (int i = 0; i < chess.length; i++){
             if (chess[i][col] == 'Q'){
@@ -70,6 +82,8 @@ public class NQueens {
 
         return true;
     }
+
+    //二维数组转List
     private static List<String> array2List(char[][] chess){
         List<String> list = new ArrayList<>();
         for (char[] ch : chess){
@@ -78,6 +92,8 @@ public class NQueens {
 
         return list;
     }
+
+
     public static void main(String[] args) {
         int n = 4;
         System.out.println(solveNQueens(n));
