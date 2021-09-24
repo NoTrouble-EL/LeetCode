@@ -8,6 +8,7 @@ import java.util.Arrays;
  */
 public class NQueensII {
 
+    //全局变量用于记录次数
     private static int res = 0;
 
     /**

@@ -21,15 +21,20 @@ public class RestoreIPAddress {
      */
     public static List<String> restoreIpAddress(String s){
         List<String> res = new ArrayList<>();
+        //corner case
         if (s.length() > 12){
             return res;
         }
+
+        //backtracking
         helper(res, s, 0, 0);
 
         return res;
     }
 
+    //backtracking
     private static void helper(List<String> res, String s, int index, int numPoint){
+        //递归出口
         if (numPoint == 3){
             if (isValid(s, index, s.length()-1)){
                 res.add(s);
@@ -37,6 +42,7 @@ public class RestoreIPAddress {
             return;
         }
 
+        //横向遍历
         for (int i = index; i < s.length(); i++){
             if (isValid(s, index, i)){
                 s = s.substring(0, i+1) + "." + s.substring(i+1);
@@ -50,6 +56,7 @@ public class RestoreIPAddress {
         }
     }
 
+    //验证可用性
     private static boolean isValid(String s, int start, int end){
         if (start > end){
             return false;

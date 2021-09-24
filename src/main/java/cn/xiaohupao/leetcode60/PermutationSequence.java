@@ -28,9 +28,12 @@ public class PermutationSequence {
     public static String getPermutation(int n, int k){
         int[] f = new int[n];
         f[0] = 1;
+        //use dp 记录n个元素有多少种排列方式
         for (int i = 1; i < n; i++){
             f[i] = i * f[i-1];
         }
+
+        //use List记录n个可用的数字
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 1; i <= n; i++){
             list.add(i);
